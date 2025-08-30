@@ -1,0 +1,403 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "API documentation for Node.js project",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/category": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Get all categories",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of categories",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "items": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Create category",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      }
+    },
+    "/api/category/{id}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Get category detail",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category detail"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Update category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Delete category",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/api/category/array": {
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Create many categories",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      }
+    },
+    "/api/product": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get all products",
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of products",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create product",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      }
+    },
+    "/api/product/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get product detail",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product detail"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Update product",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Delete product",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/api/product/array": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create many products",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "products": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "code",
+          "name",
+          "products"
+        ]
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "object"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "image": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discountPercent": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float"
+          },
+          "reviews": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isBestSeller": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "category",
+          "categoryId",
+          "image",
+          "price",
+          "discountPercent",
+          "description",
+          "rating",
+          "reviews",
+          "isBestSeller",
+          "isActive"
+        ]
+      }
+    }
+  }
+}

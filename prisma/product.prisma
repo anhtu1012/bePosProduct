@@ -1,0 +1,16 @@
+// model Product {
+//   id              BigInt    @id @default(autoincrement()) @map("product_id")
+//   name            String    @map("name") @db.VarChar(255)
+//   category        Category  @relation(fields: [categoryId], references: [id])
+//   categoryId      BigInt    @map("category_id")
+//   image           String    @map("image") @db.VarChar(255)
+//   price           Int       @map("price")
+//   discountPercent Int       @map("discount_percent")
+//   description     String    @map("description") @db.VarChar(500)
+//   rating          Float     @map("rating")
+//   reviews         Int       @map("reviews")
+//   isBestSeller    Boolean   @map("is_best_seller") @default(false)
+//   isActive        Boolean   @map("is_active") @default(true)
+
+//   @@map("product")
+// }
