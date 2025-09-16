@@ -11,6 +11,7 @@ import {
   getCategoryByCode,
   getCategoryService,
 } from '../services/category.service';
+import { MESSAGES_REP } from '../constants/messages/messagesRep';
 //
 // GET /category?limit=10&offset=0
 export async function getAllCategorysHandler(req: Request, res: Response): Promise<void> {
@@ -19,12 +20,12 @@ export async function getAllCategorysHandler(req: Request, res: Response): Promi
     const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
     const result = await getCategoryService({ limit, offset });
     res.status(HTTP_STATUS.OK).json({
-      message: CATEGORY_MESSAGES.RETRIEVE_SUCCESS,
+      message: MESSAGES_REP.RETRIEVE_SUCCESS,
       ...result,
     });
   } catch (error: any) {
     res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
-      message: CATEGORY_MESSAGES.RETRIEVE_FAILURE,
+      message: MESSAGES_REP.RETRIEVE_FAILURE,
       error: error.message,
     });
   }

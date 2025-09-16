@@ -11,6 +11,7 @@ import {
 } from '../services/product.service';
 import { getListWithPaging } from '../utils/listWithPaging.utils';
 import { PRODUCT_MESSAGES } from '../constants/messages/proudct';
+import { emitToAll } from '../utils/socket.utils';
 
 // GET /product?limit=10&offset=0&name=abc
 export async function getAllProductsHandler(req: Request, res: Response): Promise<void> {
@@ -66,6 +67,14 @@ export async function createProductHandler(req: Request, res: Response): Promise
       return;
     }
     const product = await createProductService(data);
+    // Emit socket event for product creation
+    emitToAll('PRODUCT_KEY', {
+      id: product.id.toString(),
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      categoryId: product.categoryId.toString(),
+    });
     res.status(HTTP_STATUS.CREATED).json({
       message: PRODUCT_MESSAGES.CREATE_SUCCESS,
       data: { ...product, id: product.id.toString(), categoryId: product.categoryId.toString() },
@@ -83,6 +92,11 @@ export async function createManyProductHandler(req: Request, res: Response): Pro
   try {
     const data = req.body;
     const result = await createManyProductService(data);
+    // Emit socket event for bulk product creation
+    emitToAll('PRODUCT_KEY', {
+      count: result.count,
+      message: `${result.count} products created successfully`,
+    });
     res.status(HTTP_STATUS.CREATED).json({
       message: PRODUCT_MESSAGES.CREATE_SUCCESS,
       data: result,

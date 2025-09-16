@@ -1,0 +1,12 @@
+{
+  "name": "iPhone 15 Pro Max 256GB (Đã cập nhật)",
+  "categoryId": 1,
+  "image": "https://example.com/images/iphone15-pro-max-updated.jpg",
+  "price": 34000000,
+  "discountPercent": 12,
+  "description": "Điện thoại iPhone 15 Pro Max với chip A17 Pro mạnh mẽ, camera 48MP, màn hình Super Retina XDR 6.7 inch. Đã cập nhật với iOS 17.2 và nhiều tính năng mới.",
+  "rating": 4.9,
+  "reviews": 1450,
+  "isBestSeller": true,
+  "isActive": true
+}
